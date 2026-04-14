@@ -1,5 +1,6 @@
 package com.saumyproject.complaint_system.service;
 import com.saumyproject.complaint_system.entity.User;
+import com.saumyproject.complaint_system.exception.ResourceNotFoundException;
 import com.saumyproject.complaint_system.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,6 @@ public class UserService {
 
     public User getUserById(Long id) {
         return userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        .orElseThrow(() -> new ResourceNotFoundException("User not found"));
     }
 }

@@ -2,6 +2,9 @@ package com.saumyproject.complaint_system.controller;
 
 import com.saumyproject.complaint_system.entity.User;
 import com.saumyproject.complaint_system.service.UserService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +18,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
+    public User createUser(@Valid @RequestBody User user) {
         return userService.createUser(user);
     }
    

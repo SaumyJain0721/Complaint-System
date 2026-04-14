@@ -2,6 +2,7 @@ package com.saumyproject.complaint_system.service;
 
 
 import com.saumyproject.complaint_system.entity.*;
+import com.saumyproject.complaint_system.exception.ResourceNotFoundException;
 import com.saumyproject.complaint_system.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,6 @@ public class ComplaintService {
     }
     public Complaint getComplaintById(Long id) {
         return complaintRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Complaint not found"));
+        .orElseThrow(() -> new ResourceNotFoundException("Complaint not found"));
     }
 }

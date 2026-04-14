@@ -1,6 +1,8 @@
 package com.saumyproject.complaint_system.entity;
-import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
+import jakarta.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
@@ -8,21 +10,20 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotBlank(message = "Name cannot be empty")
     private String name;
 
-    @Column(unique = true)
+    @Email(message = "Invalid email format")
+    @NotBlank(message = "Email cannot be empty")
     private String email;
 
-    // Constructors
+   
     public User() {}
 
     public User(String name, String email) {
         this.name = name;
         this.email = email;
     }
-
-    // Getters & Setters
     public Long getId() { return id; }
 
     public String getName() { return name; }

@@ -19,12 +19,10 @@ public class Complaint {
 
     private LocalDateTime createdAt;
 
-    // Relationship
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    // Constructors
     public Complaint() {}
 
     public Complaint(String title, String description) {
@@ -32,7 +30,6 @@ public class Complaint {
         this.description = description;
     }
 
-    // Getters & Setters
     public Long getId() { return id; }
 
     public String getTitle() { return title; }
