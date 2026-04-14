@@ -1,0 +1,7 @@
+package com.saumyproject.complaint_system.repository;
+
+import com.saumyproject.complaint_system.entity.Complaint;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ComplaintRepository extends JpaRepository<Complaint, Long> {
+}
